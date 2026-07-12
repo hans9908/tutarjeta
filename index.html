@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjetas Digitales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .card-link {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+            height: 100%;
+        }
+        
+        .card-link:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px 20px;
+            color: white;
+            text-align: center;
+        }
+        
+        .card-header h2 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+        
+        .card-body {
+            padding: 25px 20px;
+            text-align: center;
+        }
+        
+        .card-body p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .footer p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>?? Tarjetas Digitales</h1>
+        
+        <div class="cards-grid">
+            <a href="./kevinhans/" class="card-link">
+                <div class="card-header">
+                    <h2>Kevin Hans</h2>
+                </div>
+                <div class="card-body">
+                    <p>Accede a la tarjeta digital de Kevin Hans</p>
+                    <span class="btn">Ver Tarjeta ?</span>
+                </div>
+            </a>
+            
+            <a href="./lic.claudia-loera/" class="card-link">
+                <div class="card-header">
+                    <h2>Lic. Claudia Loera</h2>
+                </div>
+                <div class="card-body">
+                    <p>Accede a la tarjeta digital de Claudia Loera</p>
+                    <span class="btn">Ver Tarjeta ?</span>
+                </div>
+            </a>
+            
+            <a href="./licclaudialoera/" class="card-link">
+                <div class="card-header">
+                    <h2>Lic. Claudia Loera</h2>
+                </div>
+                <div class="card-body">
+                    <p>Accede a la tarjeta digital alternativa</p>
+                    <span class="btn">Ver Tarjeta ?</span>
+                </div>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>Generador de Tarjetas Digitales Interactivas ? 2026</p>
+        </div>
+    </div>
+</body>
+</html>
