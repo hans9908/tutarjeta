@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador de Tarjetas</title>
+    <style>
+        :root {
+            --bg: #0b1220;
+            --panel: #121b2d;
+            --panel-alt: #19243a;
+            --text: #edf2f7;
+            --muted: #9fb0c7;
+            --accent: #4f8cff;
+            --danger: #e5484d;
+            --danger-soft: #8f1d21;
+            --success: #31a46c;
+            --border: rgba(255,255,255,0.08);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(79,140,255,0.28), transparent 30%),
+                radial-gradient(circle at bottom right, rgba(49,164,108,0.18), transparent 25%),
+                var(--bg);
+            color: var(--text);
+        }
+
+        .shell {
+            width: min(1120px, calc(100% - 32px));
+            margin: 32px auto;
+        }
+
+        .hero,
+        .card,
+        .login-panel {
+            background: linear-gradient(180deg, rgba(18,27,45,0.96), rgba(14,21,35,0.96));
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            box-shadow: 0 18px 45px rgba(0,0,0,0.28);
+        }
+
+        .hero {
+            padding: 28px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            margin: 0 0 10px;
+            font-size: clamp(1.9rem, 4vw, 2.8rem);
+        }
+
+        .hero p,
+        .hint,
+        .muted {
+            color: var(--muted);
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        button,
+        .link {
+            border: 0;
+            border-radius: 14px;
+            padding: 12px 16px;
+            font: inherit;
+            cursor: pointer;
+            transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease;
+        }
+
+        button:hover,
+        .link:hover {
+            transform: translateY(-1px);
+        }
+
+        .primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .secondary {
+            background: var(--panel-alt);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        .danger.secondary {
+            background: rgba(229,72,77,0.12);
+            border: 1px solid rgba(229,72,77,0.28);
+            color: #ffb3b5;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            padding: 20px;
+        }
+
+        .card h2 {
+            margin: 0 0 8px;
+            font-size: 1.15rem;
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0 16px;
+        }
+
+        .chip {
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid var(--border);
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .empty {
+            padding: 28px;
+            text-align: center;
+        }
+
+        .status {
+            margin: 14px 0 0;
+            min-height: 24px;
+            color: var(--muted);
+        }
+
+        .status.error { color: #ffb3b5; }
+        .status.success { color: #86efac; }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(6,10,17,0.82);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 10;
+        }
+
+        .overlay[hidden] {
+            display: none;
+        }
+
+        .login-panel {
+            width: min(460px, 100%);
+            padding: 26px;
+        }
+
+        .login-panel h2 {
+            margin-top: 0;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: 16px 0;
+        }
+
+        input {
+            width: 100%;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: #0f1727;
+            color: var(--text);
+            padding: 14px 16px;
+            font: inherit;
+        }
+
+        code {
+            background: rgba(255,255,255,0.06);
+            padding: 2px 6px;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 720px) {
+            .shell {
+                width: min(100% - 20px, 1120px);
+                margin: 16px auto 28px;
+            }
+
+            .hero,
+            .card,
+            .login-panel {
+                border-radius: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay" id="loginOverlay">
+        <div class="login-panel">
+            <h2>Panel de administración</h2>
+            <p class="hint">Este acceso protege el panel HTML. El borrado remoto de tarjetas desplegadas solicita además tu token de GitHub en el momento de uso y nunca se guarda en el código.</p>
+            <div class="field">
+                <label for="passwordInput">Contraseña</label>
+                <input id="passwordInput" type="password" autocomplete="current-password" placeholder="Introduce la contraseña del panel">
+            </div>
+            <div class="toolbar">
+                <button class="primary" id="unlockButton" type="button">Entrar</button>
+            </div>
+            <p class="status" id="loginStatus"></p>
+        </div>
+    </div>
+
+    <div class="shell">
+        <section class="hero">
+            <h1>Administrador de tarjetas</h1>
+            <p>Desde aquí puedes revisar tarjetas generadas y eliminar despliegues innecesarios en GitHub Pages. El borrado local de base de datos y archivos sigue disponible en la app de Python.</p>
+            <div class="toolbar">
+                <button class="secondary" id="reloadButton" type="button">Recargar tarjetas</button>
+                <button class="danger secondary" id="clearTokenButton" type="button">Olvidar token GitHub</button>
+            </div>
+            <p class="status" id="globalStatus"></p>
+        </section>
+
+        <section id="cardsRoot" class="grid"></section>
+    </div>
+
+    <script>
+        const ADMIN_AUTH = {"salt_hex": "b41d3ce3f7d8f0f35c1ab9c26888ad3e", "iterations": 210000, "hash_b64": "rBVUPOW8IDjFkhquJdBzo690ZeZFPStiTYy9nilfC2I="};
+        const GITHUB_CONFIG = {"owner": "hans9908", "repo": "tutarjeta", "pages_branch": "gh-pages", "content_branch": "master", "content_prefix": "dist"};
+        const AUTH_SESSION_KEY = "tarjetas_admin_authenticated";
+        const TOKEN_SESSION_KEY = "tarjetas_admin_github_token";
+        const state = { cards: [] };
+
+        function setStatus(message, kind = "") {
+            const node = document.getElementById("globalStatus");
+            node.textContent = message || "";
+            node.className = kind ? `status ${kind}` : "status";
+        }
+
+        function setLoginStatus(message, kind = "") {
+            const node = document.getElementById("loginStatus");
+            node.textContent = message || "";
+            node.className = kind ? `status ${kind}` : "status";
+        }
+
+        function hexToBytes(hex) {
+            const pairs = hex.match(/.{1,2}/g) || [];
+            return new Uint8Array(pairs.map((pair) => parseInt(pair, 16)));
+        }
+
+        function bytesToBase64(bytes) {
+            let binary = "";
+            bytes.forEach((byte) => {
+                binary += String.fromCharCode(byte);
+            });
+            return btoa(binary);
+        }
+
+        function utf8ToBase64(text) {
+            return btoa(unescape(encodeURIComponent(text)));
+        }
+
+        async function derivePasswordHash(password) {
+            const keyMaterial = await crypto.subtle.importKey(
+                "raw",
+                new TextEncoder().encode(password),
+                "PBKDF2",
+                false,
+                ["deriveBits"]
+            );
+            const bits = await crypto.subtle.deriveBits(
+                {
+                    name: "PBKDF2",
+                    hash: "SHA-256",
+                    salt: hexToBytes(ADMIN_AUTH.salt_hex),
+                    iterations: ADMIN_AUTH.iterations,
+                },
+                keyMaterial,
+                256
+            );
+            return bytesToBase64(new Uint8Array(bits));
+        }
+
+        function timingSafeEqual(left, right) {
+            if (left.length !== right.length) {
+                return false;
+            }
+            let diff = 0;
+            for (let index = 0; index < left.length; index += 1) {
+                diff |= left.charCodeAt(index) ^ right.charCodeAt(index);
+            }
+            return diff === 0;
+        }
+
+        function contentUrl(path) {
+            const encoded = path.split("/").filter(Boolean).map(encodeURIComponent).join("/");
+            return `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${encoded}`;
+        }
+
+        async function getContent(path, branch, token) {
+            const response = await fetch(`${contentUrl(path)}?ref=${encodeURIComponent(branch)}`, {
+                headers: token ? { Authorization: `token ${token}` } : {},
+            });
+            if (response.status === 404) {
+                return null;
+            }
+            if (!response.ok) {
+                throw new Error(`No se pudo leer ${path} en ${branch} (${response.status}).`);
+            }
+            return response.json();
+        }
+
+        async function collectFiles(path, branch, token) {
+            const node = await getContent(path, branch, token);
+            if (!node) {
+                return [];
+            }
+            if (Array.isArray(node)) {
+                const nested = await Promise.all(
+                    node.map((entry) => collectFiles(entry.path, branch, token))
+                );
+                return nested.flat();
+            }
+            if (node.type === "file") {
+                return [{ path: node.path, sha: node.sha }];
+            }
+            if (node.type === "dir") {
+                return collectFiles(node.path, branch, token);
+            }
+            return [];
+        }
+
+        async function deleteFile(entry, branch, token) {
+            const response = await fetch(contentUrl(entry.path), {
+                method: "DELETE",
+                headers: {
+                    Authorization: `token ${token}`,
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    message: `Delete ${entry.path}`,
+                    sha: entry.sha,
+                    branch,
+                }),
+            });
+            if (!response.ok) {
+                const detail = await response.text();
+                throw new Error(`No se pudo borrar ${entry.path} en ${branch}. ${detail}`);
+            }
+        }
+
+        async function putJsonFile(path, branch, data, token) {
+            const existing = await getContent(path, branch, token);
+            const payload = {
+                message: `Update ${path}`,
+                content: utf8ToBase64(JSON.stringify(data, null, 2)),
+                branch,
+            };
+            if (existing && !Array.isArray(existing) && existing.sha) {
+                payload.sha = existing.sha;
+            }
+            const response = await fetch(contentUrl(path), {
+                method: "PUT",
+                headers: {
+                    Authorization: `token ${token}`,
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload),
+            });
+            if (!response.ok) {
+                const detail = await response.text();
+                throw new Error(`No se pudo actualizar ${path}. ${detail}`);
+            }
+        }
+
+        async function ensureToken() {
+            let token = sessionStorage.getItem(TOKEN_SESSION_KEY) || "";
+            if (!token) {
+                token = window.prompt("Introduce un token de GitHub con permiso repo para borrar tarjetas desplegadas.", "");
+                if (!token) {
+                    return "";
+                }
+                sessionStorage.setItem(TOKEN_SESSION_KEY, token.trim());
+                token = token.trim();
+            }
+            return token;
+        }
+
+        async function loadCards() {
+            const response = await fetch(`./clients.json?ts=${Date.now()}`);
+            if (!response.ok) {
+                throw new Error("No se pudo cargar el catálogo del panel.");
+            }
+            state.cards = await response.json();
+        }
+
+        function renderCards() {
+            const root = document.getElementById("cardsRoot");
+            root.innerHTML = "";
+
+            if (!state.cards.length) {
+                const empty = document.createElement("div");
+                empty.className = "card empty";
+                empty.innerHTML = "<h2>Sin tarjetas registradas</h2><p class="muted">Cuando guardes o generes clientes desde la app de Python, este panel se actualizará automáticamente.</p>";
+                root.appendChild(empty);
+                return;
+            }
+
+            state.cards.forEach((card) => {
+                const article = document.createElement("article");
+                article.className = "card";
+
+                const title = document.createElement("h2");
+                title.textContent = card.company_name || card.username;
+                article.appendChild(title);
+
+                const subtitle = document.createElement("p");
+                subtitle.className = "muted";
+                subtitle.textContent = `@${card.username}`;
+                article.appendChild(subtitle);
+
+                const meta = document.createElement("div");
+                meta.className = "meta";
+                [
+                    card.category || "sin categoría",
+                    card.generated ? "generada" : "sin generar",
+                    card.created_at || "sin fecha",
+                ].forEach((item) => {
+                    const chip = document.createElement("span");
+                    chip.className = "chip";
+                    chip.textContent = item;
+                    meta.appendChild(chip);
+                });
+                article.appendChild(meta);
+
+                const actions = document.createElement("div");
+                actions.className = "actions";
+
+                if (card.preview_url) {
+                    const preview = document.createElement("a");
+                    preview.className = "link secondary";
+                    preview.href = card.preview_url;
+                    preview.target = "_blank";
+                    preview.rel = "noopener noreferrer";
+                    preview.textContent = "Abrir tarjeta";
+                    actions.appendChild(preview);
+                }
+
+                const remove = document.createElement("button");
+                remove.type = "button";
+                remove.className = "danger";
+                remove.textContent = "Eliminar despliegue";
+                remove.addEventListener("click", () => deleteCard(card.username));
+                actions.appendChild(remove);
+
+                article.appendChild(actions);
+                root.appendChild(article);
+            });
+        }
+
+        async function persistAdminManifest(token) {
+            await putJsonFile("admin/clients.json", GITHUB_CONFIG.pages_branch, state.cards, token);
+
+            if (GITHUB_CONFIG.content_branch && GITHUB_CONFIG.content_prefix) {
+                await putJsonFile(`${GITHUB_CONFIG.content_prefix}/admin/clients.json`, GITHUB_CONFIG.content_branch, state.cards, token);
+            }
+        }
+
+        async function deleteCard(username) {
+            const confirmed = window.confirm(`Se eliminará la tarjeta desplegada de @${username} en GitHub Pages y en la rama de contenido. Esta acción no toca la base de datos local. ¿Deseas continuar?`);
+            if (!confirmed) {
+                return;
+            }
+
+            const token = await ensureToken();
+            if (!token) {
+                setStatus("Se canceló el borrado porque no se proporcionó token.", "error");
+                return;
+            }
+
+            try {
+                setStatus(`Borrando @${username}...`);
+
+                const pagesFiles = await collectFiles(username, GITHUB_CONFIG.pages_branch, token);
+                for (const entry of pagesFiles) {
+                    await deleteFile(entry, GITHUB_CONFIG.pages_branch, token);
+                }
+
+                if (GITHUB_CONFIG.content_branch && GITHUB_CONFIG.content_prefix) {
+                    const contentPath = `${GITHUB_CONFIG.content_prefix}/${username}`;
+                    const contentFiles = await collectFiles(contentPath, GITHUB_CONFIG.content_branch, token);
+                    for (const entry of contentFiles) {
+                        await deleteFile(entry, GITHUB_CONFIG.content_branch, token);
+                    }
+                }
+
+                state.cards = state.cards.filter((card) => card.username !== username);
+                await persistAdminManifest(token);
+                renderCards();
+                setStatus(`La tarjeta desplegada de @${username} fue eliminada correctamente.`, "success");
+            } catch (error) {
+                setStatus(error.message || "No se pudo eliminar la tarjeta.", "error");
+            }
+        }
+
+        async function unlock() {
+            const password = document.getElementById("passwordInput").value;
+            if (!password) {
+                setLoginStatus("Introduce la contraseña del panel.", "error");
+                return;
+            }
+
+            try {
+                const derived = await derivePasswordHash(password);
+                if (!timingSafeEqual(derived, ADMIN_AUTH.hash_b64)) {
+                    setLoginStatus("Contraseña incorrecta.", "error");
+                    return;
+                }
+
+                sessionStorage.setItem(AUTH_SESSION_KEY, "ok");
+                document.getElementById("loginOverlay").hidden = true;
+                setLoginStatus("");
+                await refreshCards(true);
+            } catch (error) {
+                setLoginStatus("No se pudo validar la contraseña en este navegador.", "error");
+            }
+        }
+
+        async function refreshCards(silent = false) {
+            try {
+                await loadCards();
+                renderCards();
+                if (!silent) {
+                    setStatus("Panel actualizado.", "success");
+                }
+            } catch (error) {
+                setStatus(error.message || "No se pudo recargar el panel.", "error");
+            }
+        }
+
+        document.getElementById("unlockButton").addEventListener("click", unlock);
+        document.getElementById("passwordInput").addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                unlock();
+            }
+        });
+        document.getElementById("reloadButton").addEventListener("click", () => refreshCards(false));
+        document.getElementById("clearTokenButton").addEventListener("click", () => {
+            sessionStorage.removeItem(TOKEN_SESSION_KEY);
+            setStatus("El token de GitHub se eliminó de la sesión actual.", "success");
+        });
+
+        if (sessionStorage.getItem(AUTH_SESSION_KEY) === "ok") {
+            document.getElementById("loginOverlay").hidden = true;
+            refreshCards(true);
+        }
+    </script>
+</body>
+</html>
