@@ -1,17 +1,17 @@
 
-/* --- ESTILO PREMIUM: ABOGADOS / Lex Moderno --- */
+/* --- ESTILO PREMIUM: INGENIERIA / Vector Pulse --- */
 :root {
-    --page-bg: #111318;
-    --page-gradient: radial-gradient(circle at 12% 90%, #3a3027 0%, #171c26 45%, #111318 100%);
-    --surface: #1a1f2b;
-    --surface-alt: #202738;
-    --text-color: #f8f5ef;
-    --muted-color: #bcb29f;
-    --accent-color: #cfab73;
-    --accent-soft: #8f6f43;
-    --ring-color: rgba(207, 171, 115, 0.36);
-    --body-copy: 'Manrope', sans-serif;
-    --display-copy: 'Cormorant Garamond', serif;
+    --page-bg: #0a1019;
+    --page-gradient: radial-gradient(circle at 86% 14%, #0d4b5e 0%, #13243a 46%, #0a1019 100%);
+    --surface: #111f33;
+    --surface-alt: #1a2f49;
+    --text-color: #eaf5ff;
+    --muted-color: #a2bdd1;
+    --accent-color: #39d5ff;
+    --accent-soft: #1d8fb1;
+    --ring-color: rgba(57, 213, 255, 0.33);
+    --body-copy: 'IBM Plex Sans', sans-serif;
+    --display-copy: 'Space Grotesk', sans-serif;
 }
 
 * {
@@ -258,6 +258,8 @@ h1 {
 }
 
 .link-btn {
+    --link-brand: var(--accent-color);
+    --link-brand-soft: color-mix(in srgb, var(--link-brand) 24%, transparent);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -265,24 +267,79 @@ h1 {
     min-height: 50px;
     padding: 12px 16px;
     border-radius: 14px;
-    border: 1px solid color-mix(in srgb, var(--accent-color) 34%, transparent);
-    background: color-mix(in srgb, var(--surface-alt) 84%, transparent);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--link-brand) 34%, transparent);
+    background: linear-gradient(160deg, color-mix(in srgb, var(--surface-alt) 84%, var(--link-brand-soft)), color-mix(in srgb, var(--surface) 88%, transparent));
     color: var(--text-color);
     font-weight: 700;
     letter-spacing: 0.01em;
     text-decoration: none;
-    transition: transform 0.22s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 8px 22px color-mix(in srgb, var(--link-brand) 16%, transparent);
+    transition: transform 0.22s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+}
+
+.link-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--link-brand) 88%, white 8%) 0%, color-mix(in srgb, var(--link-brand) 56%, #09111f) 100%);
+    transition: opacity 0.24s ease;
+}
+
+.link-btn > * {
+    position: relative;
+    z-index: 1;
 }
 
 .link-btn:hover {
     transform: translateY(-2px);
-    background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color) 28%, var(--surface-alt)) 0%, color-mix(in srgb, var(--accent-soft) 26%, var(--surface-alt)) 100%);
-    border-color: color-mix(in srgb, var(--accent-color) 72%, white 12%);
-    box-shadow: 0 10px 24px color-mix(in srgb, var(--accent-soft) 35%, transparent);
+    color: white;
+    border-color: color-mix(in srgb, var(--link-brand) 84%, white 8%);
+    box-shadow: 0 14px 28px color-mix(in srgb, var(--link-brand) 42%, transparent);
+}
+
+.link-btn:hover::before {
+    opacity: 1;
 }
 
 .link-btn i {
-    color: var(--accent-color);
+    color: var(--link-brand);
+    transition: color 0.25s ease;
+}
+
+.link-btn:hover i {
+    color: white;
+}
+
+.link-btn.link-whatsapp { --link-brand: #25d366; }
+.link-btn.link-facebook { --link-brand: #1877f2; }
+.link-btn.link-youtube { --link-brand: #ff0000; }
+.link-btn.link-linkedin { --link-brand: #0a66c2; }
+.link-btn.link-tiktok { --link-brand: #fe2c55; }
+.link-btn.link-github { --link-brand: #8b949e; }
+.link-btn.link-x { --link-brand: #111111; }
+.link-btn.link-telegram { --link-brand: #229ed9; }
+.link-btn.link-email { --link-brand: #ea4335; }
+.link-btn.link-web { --link-brand: #22b8cf; }
+.link-btn.link-maps { --link-brand: #34a853; }
+.link-btn.link-phone { --link-brand: #7f8c9a; }
+.link-btn.link-calendly { --link-brand: #006bff; }
+.link-btn.link-behance { --link-brand: #1769ff; }
+.link-btn.link-dribbble { --link-brand: #ea4c89; }
+.link-btn.link-pinterest { --link-brand: #bd081c; }
+.link-btn.link-pdf { --link-brand: #d93025; }
+
+.link-btn.link-instagram {
+    --link-brand: #dd2a7b;
+    background: linear-gradient(160deg, color-mix(in srgb, var(--surface-alt) 78%, rgba(245,133,41,0.18)), color-mix(in srgb, var(--surface) 88%, rgba(129,52,175,0.18)));
+}
+
+.link-btn.link-instagram::before {
+    background: linear-gradient(135deg, #f58529 0%, #feda77 18%, #dd2a7b 52%, #8134af 78%, #515bd4 100%);
 }
 
 .link-btn.link-whatsapp i { color: #25d366; }
@@ -404,13 +461,12 @@ body.category-abogados .section-title::after {
 }
 
 body.category-abogados .link-btn {
-    border-color: color-mix(in srgb, var(--accent-color) 52%, transparent);
-    background: linear-gradient(160deg, color-mix(in srgb, var(--surface-alt) 82%, #1f2a3f), color-mix(in srgb, var(--surface) 88%, #121a2c));
+    border-color: color-mix(in srgb, var(--link-brand) 52%, transparent);
+    background: linear-gradient(160deg, color-mix(in srgb, var(--surface-alt) 82%, var(--link-brand-soft)), color-mix(in srgb, var(--surface) 88%, #121a2c));
 }
 
 body.category-abogados .link-btn:hover {
-    background: linear-gradient(145deg, color-mix(in srgb, var(--accent-color) 34%, #2d3650), color-mix(in srgb, var(--accent-soft) 28%, #1d2436));
-    box-shadow: 0 12px 26px color-mix(in srgb, var(--accent-soft) 42%, transparent);
+    box-shadow: 0 12px 26px color-mix(in srgb, var(--link-brand) 42%, transparent);
 }
 
 body.category-ingenieria .design-chip {
