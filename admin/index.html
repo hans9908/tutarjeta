@@ -230,6 +230,10 @@
             <h2>Panel de administración</h2>
             <p class="hint">Este acceso protege el panel HTML. El borrado remoto de tarjetas desplegadas solicita además tu token de GitHub en el momento de uso y nunca se guarda en el código.</p>
             <div class="field">
+                <label for="usernameInput">Usuario</label>
+                <input id="usernameInput" type="text" autocomplete="username" placeholder="Introduce el usuario del panel">
+            </div>
+            <div class="field">
                 <label for="passwordInput">Contraseña</label>
                 <input id="passwordInput" type="password" autocomplete="current-password" placeholder="Introduce la contraseña del panel">
             </div>
@@ -255,7 +259,7 @@
     </div>
 
     <script>
-        const ADMIN_AUTH = {"salt_hex": "b41d3ce3f7d8f0f35c1ab9c26888ad3e", "iterations": 210000, "hash_b64": "rBVUPOW8IDjFkhquJdBzo690ZeZFPStiTYy9nilfC2I="};
+        const ADMIN_AUTH = {"username": "admin", "salt_hex": "b41d3ce3f7d8f0f35c1ab9c26888ad3e", "iterations": 210000, "hash_b64": "rBVUPOW8IDjFkhquJdBzo690ZeZFPStiTYy9nilfC2I="};
         const GITHUB_CONFIG = {"owner": "hans9908", "repo": "tutarjeta", "pages_branch": "gh-pages", "content_branch": "master", "content_prefix": "dist"};
         const AUTH_SESSION_KEY = "tarjetas_admin_authenticated";
         const TOKEN_SESSION_KEY = "tarjetas_admin_github_token";
@@ -534,13 +538,23 @@
         }
 
         async function unlock() {
+            const username = document.getElementById("usernameInput").value.trim();
             const password = document.getElementById("passwordInput").value;
+            if (!username) {
+                setLoginStatus("Introduce el usuario del panel.", "error");
+                return;
+            }
             if (!password) {
                 setLoginStatus("Introduce la contraseña del panel.", "error");
                 return;
             }
 
             try {
+                if (username !== ADMIN_AUTH.username) {
+                    setLoginStatus("Usuario incorrecto.", "error");
+                    return;
+                }
+
                 const derived = await derivePasswordHash(password);
                 if (!timingSafeEqual(derived, ADMIN_AUTH.hash_b64)) {
                     setLoginStatus("Contraseña incorrecta.", "error");
@@ -569,6 +583,11 @@
         }
 
         document.getElementById("unlockButton").addEventListener("click", unlock);
+        document.getElementById("usernameInput").addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                unlock();
+            }
+        });
         document.getElementById("passwordInput").addEventListener("keydown", (event) => {
             if (event.key === "Enter") {
                 unlock();
