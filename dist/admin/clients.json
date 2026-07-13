@@ -1,0 +1,18 @@
+[
+  {
+    "username": "kevinhans",
+    "company_name": "Kevin Hans",
+    "category": "ingenieria",
+    "generated": true,
+    "preview_url": "../kevinhans/",
+    "created_at": "2026-06-25T16:15:43"
+  },
+  {
+    "username": "lic.claudia-loera",
+    "company_name": "Lic. Claudia Loera",
+    "category": "abogados",
+    "generated": true,
+    "preview_url": "../lic.claudia-loera/",
+    "created_at": "2026-07-12T10:38:23"
+  }
+]
