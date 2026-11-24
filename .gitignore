@@ -1,0 +1,11 @@
+node_modules/
+web/dist/
+data/
+__pycache__/
+*.pyc
+.venv/
+.env
+
+.publish/
+
+exportaciones/

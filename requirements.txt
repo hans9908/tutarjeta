@@ -1,0 +1,6 @@
+customtkinter
+mysql-connector-python
+qrcode[pil]
+Pillow
+
+requests>=2.32,<3

@@ -1,16 +1,16 @@
 
-/* --- ESTILO PREMIUM: INGENIERIA / Vector Pulse --- */
+/* --- ESTILO PREMIUM: INGENIERIA / Precise Systems --- */
 :root {
-    --page-bg: #0a1019;
-    --page-gradient: radial-gradient(circle at 86% 14%, #0d4b5e 0%, #13243a 46%, #0a1019 100%);
-    --surface: #111f33;
-    --surface-alt: #1a2f49;
-    --text-color: #eaf5ff;
-    --muted-color: #a2bdd1;
-    --accent-color: #39d5ff;
-    --accent-soft: #1d8fb1;
-    --ring-color: rgba(57, 213, 255, 0.33);
-    --body-copy: 'IBM Plex Sans', sans-serif;
+    --page-bg: #0b0e17;
+    --page-gradient: radial-gradient(circle at 80% 8%, #0f2f35 0%, #111a2a 52%, #0b0e17 100%);
+    --surface: #131b2a;
+    --surface-alt: #1a2438;
+    --text-color: #ecf5fb;
+    --muted-color: #9fb2bf;
+    --accent-color: #59ffb4;
+    --accent-soft: #2bbf82;
+    --ring-color: rgba(89, 255, 180, 0.34);
+    --body-copy: 'Manrope', sans-serif;
     --display-copy: 'Space Grotesk', sans-serif;
 }
 
@@ -175,6 +175,7 @@ body.buchona-global .card-container::before {
     height: 124px;
     border-radius: 30px;
     object-fit: cover;
+    object-position: center var(--logo-position, 50%);
     border: 3px solid color-mix(in srgb, var(--accent-color) 70%, white 10%);
     box-shadow: 0 12px 28px color-mix(in srgb, var(--accent-soft) 28%, transparent);
 }
@@ -501,3 +502,109 @@ body.category-arquitectura .card-container {
         margin-top: 20px;
     }
 }
+
+/* Siete composiciones: jerarquía y distribución propias, además de la paleta. */
+body{min-height:100svh;padding:36px 20px}.card-container{isolation:isolate}h1{overflow-wrap:anywhere}.bio{line-height:1.8}.link-btn{min-height:54px;font-size:15px;transition:transform .18s,background .18s}.link-btn:focus-visible{outline:3px solid var(--accent-color);outline-offset:4px}.link-btn:hover{transform:translateY(-2px)}.logo-container img{display:block;object-position:center var(--logo-position,50%)}.card-signature{display:flex;justify-content:space-between;gap:20px;border-top:1px solid color-mix(in srgb,var(--accent-color) 20%,transparent);padding-top:22px;margin-top:32px;font-size:11px;letter-spacing:.06em;color:var(--muted-color);opacity:.7}.card-signature span:first-child{max-width:70%}.contact-section{margin:22px 0}.contact-section .link-btn{background:var(--accent-color);color:#152026!important;border:0!important;box-shadow:none!important;font-weight:700}.chip-row{gap:8px;flex-wrap:wrap}.design-chip,.category-chip{font-size:10px!important}.section-title{font-size:11px!important;line-height:1.6}.logo-container{align-items:center}
+/* Editorial: masthead, oversized typography and fine rules. */
+body.composition-1{background:#e8edf0;padding-top:50px;align-items:flex-start}body.composition-1:before,body.composition-1:after{display:none}body.composition-1 .card-container{width:min(100%,620px);border-radius:2px;border:0;border-top:9px solid var(--accent-color);background:var(--surface);padding:34px 38px;box-shadow:0 20px 70px #18263625}body.composition-1 .chip-row{justify-content:space-between;border-bottom:1px solid color-mix(in srgb,var(--accent-color) 30%,transparent);padding-bottom:18px;margin-bottom:30px}body.composition-1 .design-chip,body.composition-1 .category-chip{border:0;padding:0;background:none}body.composition-1 .logo-container{margin:0 0 22px;padding:0}body.composition-1 .logo-container img{width:92px;height:92px;border-radius:4px;border-width:1px}body.composition-1 .info{text-align:left}body.composition-1 h1{font-family:Georgia,serif;font-size:clamp(36px,8vw,58px);line-height:1.02;letter-spacing:-.04em;max-width:430px}body.composition-1 .bio{font-size:15px;max-width:410px;margin:18px 0}body.composition-1 .meta-grid{justify-content:start}body.composition-1 .section-title{background:none;padding:0;margin:28px 0 14px;border:0;border-radius:0}body.composition-1 .link-btn{border:0;border-bottom:1px solid color-mix(in srgb,var(--accent-color) 22%,transparent);border-radius:0;box-shadow:none;background:none;text-align:left;justify-content:flex-start;padding:18px 0}body.composition-1 .contact-section .link-btn{padding:16px 20px}
+/* Profile: an immersive banner and overlapping portrait. */
+body.composition-2 .card-container{width:min(100%,460px);border:0;border-radius:24px;padding:0 28px 30px;background:var(--surface);overflow:hidden}body.composition-2 .card-container:before{content:'';display:block;position:absolute;inset:0 0 auto;height:170px;background:linear-gradient(125deg,var(--accent-color),var(--accent-soft));z-index:-1}body.composition-2 .chip-row{padding-top:25px;margin-bottom:36px;justify-content:flex-end;height:76px}body.composition-2 .design-chip{display:none}body.composition-2 .category-chip{background:#0c172344;border:1px solid #ffffff44;color:#fff;backdrop-filter:blur(8px)}body.composition-2 .logo-container{margin:0 auto 20px;background:var(--surface);padding:6px;border-radius:50%}body.composition-2 .logo-container img{width:126px;height:126px;border:4px solid var(--surface);border-radius:50%;box-shadow:none}body.composition-2 h1{font-size:32px;letter-spacing:-.03em;font-family:'Manrope',sans-serif}body.composition-2 .bio{max-width:310px;margin:17px auto;font-size:14px}body.composition-2 .link-btn{border-radius:50px;border:1px solid color-mix(in srgb,var(--accent-color) 25%,transparent);box-shadow:none;background:color-mix(in srgb,var(--surface-alt) 80%,transparent)}body.composition-2 .section-title{text-align:center;justify-content:center;display:block;background:none;padding:0}body.composition-2 .section-title:after{display:none}
+/* Mosaic: a broad identity block and a tactile grid of channels. */
+body.composition-3{background:var(--page-bg)}body.composition-3 .card-container{width:min(100%,630px);border-radius:30px;padding:35px;background:var(--surface);border:1px solid color-mix(in srgb,var(--accent-color) 25%,transparent)}body.composition-3 .chip-row{justify-content:flex-start;margin-bottom:28px}body.composition-3 .design-chip{display:none}body.composition-3 .logo-container{margin:0 0 22px;padding:0}body.composition-3 .logo-container img{width:88px;height:88px;border-radius:24px;border:0}body.composition-3 .info{text-align:left}body.composition-3 h1{font-size:clamp(34px,8vw,52px);font-family:'Space Grotesk',sans-serif;line-height:1.05;letter-spacing:-.04em;max-width:470px}body.composition-3 .bio{font-size:15px;max-width:440px}body.composition-3 .meta-grid{justify-content:flex-start}body.composition-3 .channels-section .links,body.composition-3 .profiles-section .links{display:grid;grid-template-columns:1fr 1fr;gap:12px}body.composition-3 .channels-section .link-btn,body.composition-3 .profiles-section .link-btn{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:24px;padding:22px 20px;min-height:122px;background:color-mix(in srgb,var(--accent-color) 9%,var(--surface-alt));border:1px solid color-mix(in srgb,var(--accent-color) 18%,transparent);border-radius:17px;box-shadow:none;font-size:13px}body.composition-3 .link-btn i{font-size:25px}body.composition-3 .section-title{padding:0;background:none;letter-spacing:.15em}body.composition-3 .contact-section .link-btn{border-radius:12px}
+/* Paper: light, quiet, unboxed contact links. */
+body.composition-4{--text-color:#23372e;--muted-color:#66776e;--surface:#fff;--surface-alt:#f3f7f4;--accent-color:#3f6854;--accent-soft:#769b84;background:#eaf0ed;color:var(--text-color)}body.composition-4:before,body.composition-4:after{display:none}body.composition-4 .card-container{background:#fff;width:min(100%,470px);border:0;border-radius:0;padding:42px 34px;box-shadow:0 20px 80px #29483810}body.composition-4 .chip-row{justify-content:center;gap:0;margin-bottom:27px}body.composition-4 .design-chip{display:none}body.composition-4 .category-chip{background:none;border:0;letter-spacing:.2em;color:#778e80}body.composition-4 .logo-container{padding:0;margin-bottom:25px}body.composition-4 .logo-container img{width:90px;height:90px;border-radius:50%;border:0;box-shadow:none}body.composition-4 h1{font-family:'DM Sans',sans-serif;font-size:32px;font-weight:500;letter-spacing:-.04em;color:#243c2f}body.composition-4 .bio{color:#7c8c82;font-size:14px;line-height:1.9}body.composition-4 .meta-chip{background:#f4f7f4;color:#6d8173;border:0;box-shadow:none}body.composition-4 .section-title{background:none;color:#839b8b;display:block;text-align:center;border:0;padding:0;letter-spacing:.18em}body.composition-4 .section-title:after{display:none}body.composition-4 .link-btn{border:0;border-bottom:1px solid #e7eee8;background:none;color:#4a6655;border-radius:0;box-shadow:none;justify-content:space-between;padding:20px 5px;font-weight:500}body.composition-4 .link-btn i{color:#8da994}body.composition-4 .contact-section .link-btn{border-radius:4px;background:#3f6854;color:white!important;justify-content:center;padding:16px}body.composition-4 .contact-section i{color:white}
+/* Signature: a framed crest and restrained, monochrome luxury. */
+body.composition-5{background:radial-gradient(ellipse at 50% 0,color-mix(in srgb,var(--accent-color) 16%,#0c1413),#0a1112 75%);padding:40px 18px}body.composition-5 .card-container{width:min(100%,510px);background:linear-gradient(155deg,color-mix(in srgb,var(--accent-color) 5%,#101c1b),#0e1719);border:1px solid color-mix(in srgb,var(--accent-color) 45%,transparent);border-radius:5px;padding:33px;box-shadow:0 30px 100px #0007}body.composition-5 .card-container:before{display:block;content:'';position:absolute;inset:9px;border:1px solid color-mix(in srgb,var(--accent-color) 18%,transparent);pointer-events:none;z-index:-1;border-radius:0;background:none}body.composition-5 .chip-row{justify-content:center;margin-bottom:27px}body.composition-5 .design-chip{border:0;background:none;letter-spacing:.25em;font-size:9px!important}body.composition-5 .category-chip{display:none}body.composition-5 .logo-container{padding:0;margin-bottom:27px}body.composition-5 .logo-container img{width:162px;height:162px;border-radius:50%;border:2px solid var(--accent-color);box-shadow:0 12px 35px #0005}body.composition-5 h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(31px,7vw,43px);line-height:1.15;letter-spacing:0;color:#f1e9d5}body.composition-5 .bio{font-size:14px;color:#abb6af;margin:18px auto;max-width:340px}body.composition-5 .meta-chip{font-size:11px;background:none;border:0;color:#bcae87}body.composition-5 .section-title{display:block;text-align:center;background:none;padding:0;color:var(--accent-color);letter-spacing:.22em;margin-top:32px}body.composition-5 .section-title:after{display:none}body.composition-5 .link-btn{background:none;border:1px solid color-mix(in srgb,var(--accent-color) 28%,transparent);color:#d5d7cf;border-radius:2px;box-shadow:none;padding:16px;font-size:14px;font-weight:400}body.composition-5 .link-btn i{color:var(--accent-color)}body.composition-5 .contact-section .link-btn{color:#101b19!important}body.composition-5 .contact-section .link-btn i{color:#101b19}
+/* Canvas: asymmetrical technical composition and compact resource grid. */
+body.composition-6{background-color:#0b1020;background-image:linear-gradient(#ffffff03 1px,transparent 1px),linear-gradient(90deg,#ffffff03 1px,transparent 1px);background-size:36px 36px}body.composition-6:before,body.composition-6:after{display:none}body.composition-6 .card-container{display:grid;grid-template-columns:100px 1fr;gap:22px;width:min(100%,660px);padding:32px;border-radius:20px;background:linear-gradient(140deg,var(--surface),#0c1321);border:1px solid color-mix(in srgb,var(--accent-color) 30%,transparent);box-shadow:0 30px 90px #0005}body.composition-6 .chip-row{grid-column:1/-1;justify-content:space-between;margin:0 0 8px}.composition-6 .category-chip{border:0;background:none;padding:0}body.composition-6 .logo-container{margin:0;padding:0;align-self:start;width:100%;min-width:0}body.composition-6 .logo-container img{width:100px;height:100px;border-radius:13px;border:1px solid color-mix(in srgb,var(--accent-color) 50%,transparent);box-shadow:none}body.composition-6 .info{margin:0;text-align:left;min-width:0}body.composition-6 h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,6vw,42px);letter-spacing:-.05em;line-height:1.1}body.composition-6 .bio{font-size:14px;margin:16px 0}body.composition-6 .meta-grid{justify-content:flex-start}body.composition-6 .meta-chip{font-size:11px;padding:5px 8px;background:#ffffff04;border-radius:4px}body.composition-6 .card-container>section:not(.info),body.composition-6 .card-signature{grid-column:1/-1;margin:0}body.composition-6 .section-title{padding:0;background:none;margin:12px 0 16px}body.composition-6 .channels-section .links{display:grid;grid-template-columns:1fr 1fr;gap:10px}body.composition-6 .link-btn{font-family:'IBM Plex Sans',sans-serif;border-radius:8px;box-shadow:none;border:1px solid color-mix(in srgb,var(--accent-color) 18%,transparent);background:#ffffff03;justify-content:flex-start;padding:16px;font-size:13px}body.composition-6 .link-btn i{color:var(--accent-color)}body.composition-6 .contact-section .link-btn{justify-content:center}body.composition-6 .card-signature{margin-top:8px}
+/* Portfolio: airy art direction, a horizontal identity, and pill resources. */
+body.composition-7{background:#edf0f5;padding:50px 20px;--text-color:#223047;--muted-color:#7c889e;--surface:#fff;--surface-alt:#f1f4fa}body.composition-7:before,body.composition-7:after{display:none}body.composition-7 .card-container{width:min(100%,680px);background:#fff;color:#27354b;border:0;border-radius:26px;padding:38px;box-shadow:0 25px 80px #20365514;display:grid;grid-template-columns:1fr 145px;gap:25px}body.composition-7 .chip-row{grid-column:1/-1;margin:0;justify-content:flex-start}body.composition-7 .design-chip{border:0;color:#7b8ba7;background:#f0f4fa;font-size:10px}.composition-7 .category-chip{display:none}body.composition-7 .logo-container{grid-column:2;grid-row:2;margin:0;padding:0;align-self:center}body.composition-7 .logo-container img{width:145px;height:175px;border:0;box-shadow:none;border-radius:75px 75px 14px 14px}body.composition-7 .info{grid-column:1;grid-row:2;text-align:left;margin:0;align-self:center;min-width:0}body.composition-7 h1{font-family:'Fraunces',Georgia,serif;font-size:clamp(30px,6vw,48px);font-weight:500;letter-spacing:-.04em;line-height:1.12;color:#2d3a4b}body.composition-7 .bio{font-size:14px;color:#8b95a6;line-height:1.9}body.composition-7 .meta-grid{justify-content:start}body.composition-7 .meta-chip{background:#f4f6fa;color:#7c8da7;border:0;font-size:11px;box-shadow:none}body.composition-7 .card-container>section:not(.info),body.composition-7 .card-signature{grid-column:1/-1;margin:0}body.composition-7 .section-title{display:block;background:none;padding:0;color:#99a6bb;text-align:left;margin:0 0 15px;letter-spacing:.15em}body.composition-7 .section-title:after{display:none}body.composition-7 .links:not(.contact-section){display:flex;flex-direction:row;flex-wrap:wrap;gap:10px}body.composition-7 .link-btn{flex:1 1 42%;border:1px solid #e2e9f3;border-radius:30px;background:#fff;color:#6a7c98;box-shadow:none;padding:16px;font-size:13px}body.composition-7 .link-btn i{color:#8a9cba}body.composition-7 .contact-section{display:flex;flex-direction:column}body.composition-7 .contact-section .link-btn{background:#293e5f;color:#fff!important;border-radius:30px}body.composition-7 .contact-section .link-btn i{color:#fff}body.composition-7 .card-signature{margin-top:8px;border-color:#e7edf5}
+@media(max-width:520px){body{padding:18px 12px!important}.card-container{max-width:100%}body.composition-1 .card-container{padding:25px 24px}body.composition-3 .card-container{padding:27px 23px}body.composition-4 .card-container{padding:30px 25px}body.composition-5 .card-container{padding:27px 24px}body.composition-6 .card-container{grid-template-columns:72px 1fr;padding:24px 20px;gap:18px}body.composition-6 .logo-container img{width:72px;height:72px}body.composition-6 .channels-section .links{grid-template-columns:1fr}body.composition-7 .card-container{padding:27px 22px;grid-template-columns:1fr 92px;gap:23px 17px}body.composition-7 .logo-container img{width:92px;height:128px}body.composition-7 .bio{font-size:13px}.card-signature{font-size:10px}body.composition-5 .logo-container img{width:150px;height:150px}}
+@media(prefers-reduced-motion:reduce){.link-btn{transition:none}.link-btn:hover{transform:none}}
+/* Preserve a visible primary contact action after composition-specific link styles. */
+body[class*="composition-"] .contact-section .link-btn{background:var(--accent-color);color:#142220!important;border:0;box-shadow:none}
+body.composition-4 .contact-section .link-btn{background:#3f6854;color:white!important}
+body.composition-7 .contact-section .link-btn{background:#293e5f;color:white!important}
+
+
+/* Buchona Atelier: grecas vectoriales, metal cepillado y superficies oscuras. */
+body.buchona-global[class*="composition-"] {
+ --ornament: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%239b6c29%22%2F%3E%3Cstop%20offset%3D%22.35%22%20stop-color%3D%22%23f4df9a%22%2F%3E%3Cstop%20offset%3D%22.65%22%20stop-color%3D%22%23c79848%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ebd18d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D%22M0%206H42V42H6V18H30V30H18V24%22%20fill%3D%22none%22%20stroke%3D%22url%28%23g%29%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22miter%22%2F%3E%3C%2Fsvg%3E");
+ --text-color:#f4ebd5;--muted-color:#bcb29a;--surface:#141714;--surface-alt:#20261f;
+ --accent-color:#d8b96e;--accent-soft:#9c763d;
+ background:#090e0d;
+ background-image:radial-gradient(ellipse at 20% 0,#33432e55,transparent 55%),radial-gradient(ellipse at 95% 90%,#69502b44,transparent 60%);
+ padding:38px 20px;
+}
+body.buchona-global.category-belleza {--surface:#1e141c;--surface-alt:#2b1c29;background-color:#100b10}
+body.buchona-global.category-abogados {--surface:#101b18;--surface-alt:#192a23}
+body.buchona-global::before {
+ content:'';display:block;position:fixed;inset:0;width:100%;height:100%;border-radius:0;
+ background-image:var(--ornament);background-size:96px 96px;background-repeat:repeat;
+ opacity:.105;filter:none;transform:none;z-index:0;pointer-events:none;
+}
+body.buchona-global::after {content:'';display:block;position:fixed;inset:0;width:100%;height:100%;border-radius:0;background:radial-gradient(ellipse at center,transparent 15%,#05090999 100%);filter:none;opacity:1;z-index:0;pointer-events:none}
+body.buchona-global[class*="composition-"] .card-container {
+ color:var(--text-color);background:linear-gradient(135deg,color-mix(in srgb,var(--surface) 97%,#a18345),var(--surface) 45%,color-mix(in srgb,var(--surface) 96%,#8b692d));
+ border:1px solid #b08a46;border-top:1px solid #d7bd7d;border-bottom:1px solid #b08a46;
+ border-radius:5px;padding:58px 52px 48px;box-shadow:0 34px 100px #0009,0 0 55px #c59a4510;
+}
+body.buchona-global[class*="composition-"] .card-container::before {
+ content:'';display:block;position:absolute;inset:12px;border:0;border-radius:0;opacity:.85;
+ background-image:var(--ornament),var(--ornament),var(--ornament),var(--ornament);
+ background-position:left top,left bottom,left top,right top;
+ background-size:28px 28px,28px 28px,28px 28px,28px 28px;
+ background-repeat:repeat-x,repeat-x,repeat-y,repeat-y;
+ pointer-events:none;z-index:-1;
+}
+body.buchona-global[class*="composition-"] .card-container::after {
+ content:'';display:block;position:absolute;inset:44px;border:1px solid #c19b4e33;border-radius:0;
+ background:none;opacity:1;pointer-events:none;z-index:-1;
+}
+body.buchona-global[class*="composition-"] .chip-row {border-color:#c7a86544;gap:12px}
+body.buchona-global[class*="composition-"] .design-chip {font-family:'Manrope',sans-serif;font-size:9px!important;font-weight:500;letter-spacing:.24em;border:0;background:none;color:#b6a67b;padding:0}
+body.buchona-global[class*="composition-"] .category-chip {font-family:'Manrope',sans-serif;background:none;color:#bba573;border:1px solid #b1965944;border-radius:2px;font-size:9px!important;letter-spacing:.13em;padding:7px 10px}
+body.buchona-global[class*="composition-"] .logo-container {background:transparent}
+body.buchona-global[class*="composition-"] .logo-container img {border:2px solid #d7b765;outline:1px solid #d7b76555;outline-offset:5px;box-shadow:0 12px 36px #0007}
+body.buchona-global[class*="composition-"] h1 {font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;letter-spacing:.015em;color:#f3e8cd;line-height:1.08}
+body.buchona-global[class*="composition-"] .bio {color:#b7b5a5;font-size:14px;line-height:1.9}
+body.buchona-global[class*="composition-"] .meta-chip {background:#d2b57308;border:1px solid #c7a96822;color:#c5b88e;border-radius:2px;font-size:11px}
+body.buchona-global[class*="composition-"] .section-title {font-family:'Manrope',sans-serif;color:#bc9e5c;letter-spacing:.2em;background:none;padding:0;font-size:10px!important}
+body.buchona-global[class*="composition-"] .section-title::after {background:linear-gradient(90deg,#b4934d66,transparent)}
+body.buchona-global[class*="composition-"] .link-btn {
+ background:linear-gradient(125deg,#c9ad6b0c,transparent 70%);border:1px solid #b59a5b55;
+ color:#e2dcca;border-radius:3px;box-shadow:none;font-family:'Manrope',sans-serif;font-weight:500;font-size:13px;min-height:54px;
+}
+body.buchona-global[class*="composition-"] .link-btn::before {background:linear-gradient(125deg,#a17b3429,#e2cd9322)}
+body.buchona-global[class*="composition-"] .link-btn:hover {border-color:#e3c67f;box-shadow:0 8px 25px #ba944b14;color:#fff5dc}
+body.buchona-global[class*="composition-"] .link-btn i {color:#d4b86e;background:none;-webkit-text-fill-color:#d4b86e}
+body.buchona-global[class*="composition-"] .card-signature {color:#a39b83;border-color:#af945740;font-size:10px;letter-spacing:.09em;opacity:1}
+body.buchona-global.composition-3 .channels-section .link-btn,body.buchona-global.composition-3 .profiles-section .link-btn {background:linear-gradient(140deg,#e6cb890b,#e6cb8903);border-radius:3px}
+body.buchona-global.composition-4 .link-btn {border:0;border-bottom:1px solid #b59a5b44;border-radius:0}
+body.buchona-global.composition-4 .meta-grid {margin-bottom:20px}
+body.buchona-global.composition-7 .design-chip {color:#c7af72}
+body.buchona-global.composition-2 .card-container:before {height:auto}
+@media(max-width:520px){
+ body.buchona-global[class*="composition-"]{padding:18px 10px!important}
+ body.buchona-global[class*="composition-"] .card-container{padding:42px 30px 35px;gap:20px 14px}
+ body.buchona-global[class*="composition-"] .card-container::before{inset:8px;background-size:18px 18px}
+ body.buchona-global[class*="composition-"] .card-container::after{inset:27px;border-color:#c19b4e26}
+ body.buchona-global[class*="composition-"] .design-chip{letter-spacing:.15em}
+ body.buchona-global[class*="composition-"] .category-chip{font-size:8px!important;letter-spacing:.06em;padding:6px}
+ body.buchona-global.composition-6 .card-container{grid-template-columns:64px minmax(0,1fr)}
+ body.buchona-global.composition-6 .logo-container img{width:64px;height:64px}
+ body.buchona-global.composition-7 .card-container{grid-template-columns:minmax(0,1fr) 78px}
+ body.buchona-global.composition-7 .logo-container img{width:78px;height:112px}
+}
+
+/* Nine-slice framing keeps each corner clean instead of overlapping strips. */
+body.buchona-global[class*="composition-"] .card-container::before {
+ background:none;border:28px solid transparent;border-image-source:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22144%22%20height%3D%22144%22%20viewBox%3D%220%200%20144%20144%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%3E%3Cstop%20stop-color%3D%22%23b68b45%22%2F%3E%3Cstop%20offset%3D%22.4%22%20stop-color%3D%22%23f1dc96%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23c6a15b%22%2F%3E%3C%2FlinearGradient%3E%3Cpattern%20id%3D%22p%22%20width%3D%2248%22%20height%3D%2248%22%20patternUnits%3D%22userSpaceOnUse%22%3E%3Cpath%20d%3D%22M0%206H42V42H6V18H30V30H18V24%22%20fill%3D%22none%22%20stroke%3D%22url%28%23g%29%22%20stroke-width%3D%223%22%2F%3E%3C%2Fpattern%3E%3C%2Fdefs%3E%3Crect%20width%3D%22144%22%20height%3D%22144%22%20fill%3D%22url%28%23p%29%22%2F%3E%3C%2Fsvg%3E");
+ border-image-slice:48;border-image-repeat:round;
+}
+@media(max-width:520px){body.buchona-global[class*="composition-"] .card-container::before{border-width:18px}}
+
+/* Internal collection and template labels never appear on the delivered card. */
+body.composition-2 .logo-container{margin-top:104px}
+body.composition-7 .logo-container,body.composition-7 .info{grid-row:1}
+body.buchona-global.composition-2 .logo-container{margin-top:10px}
