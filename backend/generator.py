@@ -1936,7 +1936,7 @@ body.category-arquitectura .card-container {{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
-<body class="composition-{int(design_profile.get('variant_index',0))+1} layout-{layout_class} category-{safe_category_class} style-{safe_style_class}{' buchona-global' if design_profile.get('design_line') == 'buchona' else ''}">
+<body class="line-{self._style_slug(design_profile.get('design_line','auto'))} composition-{int(design_profile.get('variant_index',0))+1} layout-{layout_class} category-{safe_category_class} style-{safe_style_class}{' buchona-global' if design_profile.get('design_line') == 'buchona' else ''}">
 
     <main class="card-container">
 

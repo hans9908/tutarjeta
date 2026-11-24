@@ -140,7 +140,11 @@ class StudioTests(unittest.TestCase):
                 data=server.validate(self.data|{'theme_variant':f'Estilo {n}','design_line':line})
                 profile=generator._get_design_profile(data['category'],data)
                 indices.append(profile['variant_index'])
-                self.assertIn(f'composition-{n}',generator._get_html_template(data,profile))
+                html=generator._get_html_template(data,profile)
+                self.assertIn(f'composition-{n}',html)
+                self.assertIn('line-'+line.lower(),html)
+                self.assertNotIn('class="chip-row"',html)
+                self.assertNotIn('Legal Premium',html)
             self.assertEqual(indices,list(range(7)))
 
     def test_preview_does_not_save_or_change_client(self):

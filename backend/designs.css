@@ -103,3 +103,77 @@ body.buchona-global[class*="composition-"] .card-container::before {
 body.composition-2 .logo-container{margin-top:104px}
 body.composition-7 .logo-container,body.composition-7 .info{grid-row:1}
 body.buchona-global.composition-2 .logo-container{margin-top:10px}
+/* Formal: paper, navy ink, precise rules and restrained serif typography. */
+body.line-formal[class*="composition-"]{--surface:#fff;--surface-alt:#f1f4f8;--text-color:#1d3049;--muted-color:#728298;--accent-color:#304c70;--accent-soft:#8296b0;background:#e7ecf2;background-image:repeating-linear-gradient(90deg,transparent 0 119px,#7a8da00b 119px 120px);color:#263950;padding:42px 20px}
+body.line-formal::before,body.line-formal::after{display:none}
+body.line-formal[class*="composition-"] .card-container{background:#fff;color:#1d3049;border:1px solid #d3dce8;border-top:5px solid #304c70;border-bottom:1px solid #d3dce8;border-radius:4px;box-shadow:0 22px 65px #20364e12}
+body.line-formal[class*="composition-"] .card-container::after{display:none}
+body.line-formal[class*="composition-"] h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;color:#203951;letter-spacing:-.015em;line-height:1.06}
+body.line-formal[class*="composition-"] .bio{color:#798799;font-size:14px;line-height:1.9}
+body.line-formal[class*="composition-"] .logo-container{background:transparent}
+body.line-formal[class*="composition-"] .logo-container img{border:1px solid #a5b4c9;outline:1px solid #e1e7ee;outline-offset:5px;box-shadow:none}
+body.line-formal[class*="composition-"] .meta-chip{background:#f6f8fb;color:#6f8097;border:1px solid #e6ebf3;border-radius:2px;font-size:11px;box-shadow:none}
+body.line-formal[class*="composition-"] .section-title{color:#73869e;background:none;border:0;border-radius:0;font-size:10px!important;letter-spacing:.17em;padding:0}
+body.line-formal[class*="composition-"] .section-title::after{background:#cdd6e3}
+body.line-formal[class*="composition-"] .link-btn{background:#f7f9fc;border:1px solid #dce3ed;color:#304a68;box-shadow:none;border-radius:3px;font-family:'Manrope',sans-serif;font-size:13px;font-weight:500}
+body.line-formal[class*="composition-"] .link-btn::before{background:#e8edf6}
+body.line-formal[class*="composition-"] .link-btn:hover{color:#223c5a;border-color:#96abc6;box-shadow:none}
+body.line-formal[class*="composition-"] .link-btn i{background:none;-webkit-text-fill-color:#607c9d;color:#607c9d}
+body.line-formal[class*="composition-"] .card-signature{border-color:#dce3ee;color:#8797ac}
+body.line-formal.composition-5 .card-container::before{border-color:#dce4ef;background:none}
+/* Moderna: a digital-first identity, luminous color and tactile surfaces. */
+body.line-moderna[class*="composition-"]{--surface:#121c37;--surface-alt:#223059;--text-color:#f2f3ff;--muted-color:#a1afce;--accent-color:#a496ff;--accent-soft:#4faada;background:#090d21;background-image:radial-gradient(ellipse at 5% 0,#493b8a80,transparent 60%),radial-gradient(ellipse at 100% 90%,#10537960,transparent 55%);color:#f0f2ff;padding:38px 20px}
+body.line-moderna::before{content:'';display:block;position:fixed;inset:0;width:100%;height:100%;border-radius:0;background:radial-gradient(#b9c3ff 1px,transparent 1px);background-size:28px 28px;opacity:.065;filter:none;pointer-events:none}
+body.line-moderna::after{display:none}
+body.line-moderna[class*="composition-"] .card-container{background:linear-gradient(155deg,#1d2a4aee,#11182ff5);border:1px solid #7486d544;border-top:1px solid #9caff066;border-bottom:1px solid #7486d544;border-radius:26px;box-shadow:0 30px 90px #0006,0 0 80px #7973ed0b;color:#f2f3ff}
+body.line-moderna[class*="composition-"] .card-container::after{display:none}
+body.line-moderna[class*="composition-"] h1{font-family:'Space Grotesk',sans-serif;color:#f2f3ff;font-weight:600;letter-spacing:-.055em;line-height:1.08}
+body.line-moderna[class*="composition-"] .bio{color:#a9b4d0;font-family:'DM Sans',sans-serif;font-size:14px}
+body.line-moderna[class*="composition-"] .logo-container{background:transparent}
+body.line-moderna[class*="composition-"] .logo-container img{border:2px solid #9c9aee;outline:0;box-shadow:0 12px 35px #060b2380}
+body.line-moderna[class*="composition-"] .meta-chip{background:#9494f411;border:1px solid #9494f42a;color:#b3bee1;border-radius:30px;font-size:11px}
+body.line-moderna[class*="composition-"] .section-title{color:#9c9ae6;letter-spacing:.17em;font-size:10px!important;background:none;padding:0}
+body.line-moderna[class*="composition-"] .section-title::after{background:linear-gradient(90deg,#9a9ce466,transparent)}
+body.line-moderna[class*="composition-"] .link-btn{background:linear-gradient(135deg,#8c83e51b,#8c83e508);border:1px solid #96a0df33;border-radius:14px;box-shadow:none;color:#dae2ff;font-weight:500;font-family:'DM Sans',sans-serif;font-size:14px}
+body.line-moderna[class*="composition-"] .link-btn::before{background:linear-gradient(120deg,#a79ef32b,#5198c322)}
+body.line-moderna[class*="composition-"] .link-btn:hover{border-color:#b2a9ff;box-shadow:0 8px 26px #777ad81a;color:#fff}
+body.line-moderna[class*="composition-"] .card-signature{color:#7c8bb1;border-color:#8e9bcd2b}
+body.line-moderna.composition-5 .card-container::before{border:0;background:none}
+/* Lujo: black lacquer, champagne metal and quiet typographic contrast. */
+body.line-lujo[class*="composition-"]{--surface:#151311;--surface-alt:#24201b;--text-color:#ede4d4;--muted-color:#a89c8b;--accent-color:#c7ad7d;--accent-soft:#846740;background:#0d0d0d;background-image:radial-gradient(ellipse at 50% 0,#78634436,transparent 65%);color:#f4e9d6;padding:48px 20px}
+body.line-lujo::before,body.line-lujo::after{display:none}
+body.line-lujo[class*="composition-"] .card-container{background:linear-gradient(155deg,#211d16,#121312 70%);border:1px solid #9c82534d;border-top:1px solid #d4bf9366;border-bottom:1px solid #9c82534d;border-radius:16px;box-shadow:0 35px 100px #0008;color:#ede4d4}
+body.line-lujo[class*="composition-"] .card-container::after{display:none}
+body.line-lujo[class*="composition-"] .card-container::before{content:'';display:block;position:absolute;inset:10px;border:1px solid #c9ad751b;border-radius:9px;pointer-events:none;z-index:-1;background:none}
+body.line-lujo[class*="composition-"] h1{font-family:'Fraunces',Georgia,serif;color:#f2e8d5;font-weight:500;letter-spacing:-.025em;line-height:1.13}
+body.line-lujo[class*="composition-"] .bio{font-family:'Manrope',sans-serif;font-size:13px;line-height:2;color:#b1a89b}
+body.line-lujo[class*="composition-"] .logo-container{background:transparent}
+body.line-lujo[class*="composition-"] .logo-container img{border:1px solid #c1a876;outline:1px solid #c1a87644;outline-offset:5px;box-shadow:0 12px 35px #0008}
+body.line-lujo[class*="composition-"] .meta-chip{border:0;background:none;color:#b9a887;font-size:11px;letter-spacing:.03em}
+body.line-lujo[class*="composition-"] .section-title{background:none;padding:0;color:#b5a077;font-size:9px!important;letter-spacing:.25em}
+body.line-lujo[class*="composition-"] .section-title::after{background:linear-gradient(90deg,#ad96604d,transparent)}
+body.line-lujo[class*="composition-"] .link-btn{border:1px solid #b39b6d3a;background:linear-gradient(140deg,#c7ad7d08,transparent);border-radius:7px;box-shadow:none;color:#d7cebd;font-family:'Manrope',sans-serif;font-size:13px;font-weight:400}
+body.line-lujo[class*="composition-"] .link-btn::before{background:linear-gradient(135deg,#d5b77e1c,#d5b77e08)}
+body.line-lujo[class*="composition-"] .link-btn i{color:#c7ad7d;background:none;-webkit-text-fill-color:#c7ad7d}
+body.line-lujo[class*="composition-"] .link-btn:hover{border-color:#c4aa73;box-shadow:0 7px 30px #a88a4810;color:#fff5e5}
+body.line-lujo[class*="composition-"] .card-signature{color:#8c806d;border-color:#b39b6d29;font-size:10px}
+/* Minimalista: soft paper, human scale and the absence of ornamental frames. */
+body.line-minimalista[class*="composition-"]{--surface:#fff;--surface-alt:#f5f6f5;--text-color:#293e38;--muted-color:#89968f;--accent-color:#527968;--accent-soft:#9bb5a5;background:#f1f3f1;background-image:none;color:#293e38;padding:42px 20px}
+body.line-minimalista::before,body.line-minimalista::after{display:none}
+body.line-minimalista[class*="composition-"] .card-container{background:#fff;border:0;border-radius:7px;box-shadow:0 16px 50px #3c554407;color:#293e38}
+body.line-minimalista[class*="composition-"] .card-container::before,body.line-minimalista[class*="composition-"] .card-container::after{display:none}
+body.line-minimalista[class*="composition-"] h1{font-family:'DM Sans',sans-serif;font-weight:500;color:#2e423b;letter-spacing:-.045em;line-height:1.12}
+body.line-minimalista[class*="composition-"] .bio{color:#85938b;font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.95}
+body.line-minimalista[class*="composition-"] .logo-container{background:transparent}
+body.line-minimalista[class*="composition-"] .logo-container img{border:0;outline:0;box-shadow:none}
+body.line-minimalista[class*="composition-"] .meta-chip{border:0;background:#f4f6f4;color:#8b9c91;font-size:11px;border-radius:4px;box-shadow:none}
+body.line-minimalista[class*="composition-"] .section-title{background:none;padding:0;color:#9aaba0;font-size:10px!important;letter-spacing:.16em}
+body.line-minimalista[class*="composition-"] .section-title::after{background:#e5ebe6}
+body.line-minimalista[class*="composition-"] .link-btn{background:none;border:0;border-bottom:1px solid #e5ebe6;border-radius:0;box-shadow:none;color:#5a7665;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400}
+body.line-minimalista[class*="composition-"] .link-btn::before{background:#eef3ee}
+body.line-minimalista[class*="composition-"] .link-btn i{color:#85a08e;background:none;-webkit-text-fill-color:#85a08e}
+body.line-minimalista[class*="composition-"] .link-btn:hover{color:#365a45;box-shadow:none;border-color:#a6c1af}
+body.line-minimalista[class*="composition-"] .card-signature{color:#9eaca3;border-color:#edf1ed;font-size:10px}
+body.line-minimalista.composition-3 .channels-section .link-btn,body.line-minimalista.composition-3 .profiles-section .link-btn{background:#f5f7f4;border:0;border-radius:5px}
+body.line-minimalista.composition-2 .logo-container{margin-top:35px}
+@media(max-width:520px){body.line-formal[class*="composition-"],body.line-moderna[class*="composition-"],body.line-lujo[class*="composition-"],body.line-minimalista[class*="composition-"]{padding:20px 12px!important}}

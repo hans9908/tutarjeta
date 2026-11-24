@@ -88,3 +88,10 @@ Validación actual: compilación de Vue y diez pruebas de integración correctas
 ### Actualización automática del editor
 
 La vista móvil se actualiza automáticamente al cambiar los datos, el diseño o el encuadre. Las solicitudes se procesan en orden y se descartan respuestas antiguas para evitar que reaparezca un diseño anterior. Guardar también regenera la tarjeta si tiene una URL final; sin ella conserva un borrador. El botón de actualización manual sigue disponible como respaldo. Se comprobó en el navegador el cambio automático Mosaico/Editorial y el guardado con regeneración. Pruebas de la cola de vista previa: `node --test tests/previewQueue.test.mjs`.
+
+
+## Publicación actual
+
+Las tarjetas se publican en https://hans9908.github.io/tutarjeta/ desde la rama `gh-pages` de `hans9908/tutarjeta`. Los QR y vCards usan las URLs públicas. El código del editor se guarda en `master`; el editor y su API siguen siendo locales. Los archivos internos de SQLite, cargas privadas y perfiles JSON no se publican. Se conservan las rutas antiguas de las tarjetas.
+
+Las líneas Formal, Moderna, Lujo, Minimalista y Buchona tienen acabados propios; las siete composiciones permanecen disponibles en cada línea. Se retiraron de la tarjeta final los nombres de colección y plantilla (por ejemplo, Rolex Signature y Legal Premium).
